@@ -5,17 +5,30 @@ feature 'User sign in', %q{
   As a registered user
   I should be able to sign in with email and password.
 } do 
-  let(:user){ create(:user) }
+  let!(:admin_user){ create :user }
+  context 'Rergistered non-admin  user' do    
+    let(:user){ create(:user) }
 
-  scenario "Registered user try's to sign" do   
-    visit root_path
-    expect(page).to have_content "Sign in"
-    sign_in user
+    scenario "try's to sign in " do   
+      visit root_path
+      expect(page).to have_content "Sign in"
+      sign_in user
 
-    expect(page).to have_content 'Signed in successfully.'
-    expect(current_path).to eq root_path
-  end 
+      expect(page).to have_content 'Signed in successfully.'
+      expect(current_path).to eq root_path
+    end 
+  end
+  context 'Registered admin user' do  
 
+    scenario "try's to sign in " do   
+      visit root_path
+      expect(page).to have_content "Sign in"
+      sign_in admin_user
+
+      expect(page).to have_content 'Signed in successfully.'
+      expect(current_path).to eq toolbar_admin_user_path(admin_user)
+    end 
+  end
 
   scenario "Non registered user try's to sign in" do
     visit new_user_session_path

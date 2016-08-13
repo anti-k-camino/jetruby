@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   namespace :admin do
-    resources :users
+    resources :users do
+      get :toolbar, on: :member
+    end
   end
+  
+  resources :users, only:[:show, :edit]
   
 end
