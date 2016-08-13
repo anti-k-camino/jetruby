@@ -6,6 +6,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'shoulda/matchers'
+require 'support/factory_girl'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -26,9 +27,7 @@ RSpec.configure do |config|
   #Helpers from Devise box
   config.include Devise::TestHelpers, type: :controller
   #To use as class methods(before ... end)= sign_in_user
-  config.extend ControllerMacros, type: :controller
-  #To simlyfy user's log in
-  config.include AcceptanceHelper, type: :feature
+  config.extend ControllerMacros, type: :controller 
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

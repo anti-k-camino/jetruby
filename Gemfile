@@ -43,6 +43,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'capybara'
   gem 'launchy'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
 end
 
 group :development do
