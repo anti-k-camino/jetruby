@@ -18,11 +18,18 @@ RSpec.describe User, type: :model do
       end
     end
     context 'second registerd user' do
-      another_user = User.new(name: 'jetRuby1', email: 'jet1@ruby.com', password: '123123') 
-        it 'another_user is not admin' do
-          another_user.send :set_admin
+      another_user = User.new(name: 'jetRuby1', email: 'jet1@ruby.com', password: '123123')
+          it 'another_user is not admin' do          
           another_user.save
           expect(another_user.admin?).to be_falsy 
+      end
+    end
+    context 'malicious user' do
+      malicious_user = User.new(name: 'jetRuby1', email: 'jet1@ruby.com', password: '123123') 
+        it 'malicious_user is not admin' do
+          malicious_user.send :set_admin
+          malicious_user.save
+          expect(malicious_user.admin?).to be_falsy 
       end
     end
   end
