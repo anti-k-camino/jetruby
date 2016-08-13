@@ -3,15 +3,13 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   it { should validate_presence_of :name }  
   it { should validate_presence_of :email }
-  it { should validate_presence_of :password }
-  it { should validate_presence_of :admin }
+  it { should validate_presence_of :password }  
   it { should validate_uniqueness_of(:name).case_insensitive }
 
   
   describe 'set_admin' do     
     before do
-      @user = User.new(name: 'jetRuby', email: 'jet@ruby.com', password: '123123') 
-      @user.send :set_admin
+      @user = User.new(name: 'jetRuby', email: 'jet@ruby.com', password: '123123')      
       @user.save
     end  
     context 'first registered user' do     

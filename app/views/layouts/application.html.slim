@@ -14,7 +14,6 @@ html lang="en"
     / = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application" 
 
-
   body
     .navbar.navbar-default.navbar-static-top
         .container
@@ -30,7 +29,6 @@ html lang="en"
               -else
                 li= link_to "Register", new_user_registration_path
                 li= link_to "Sign in", new_user_session_path
-
     .container
       .row
         .col-lg-12
