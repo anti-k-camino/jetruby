@@ -37,7 +37,8 @@ feature 'User sign up', %q{
 
         click_on 'Sign up'        
 
-        expect(page).to have_content "Name can't be blank"        
+        expect(page).to have_content "Name can't be blank"
+        expect(current_path).to eq user_registration_path        
       end
       scenario 'Duplicate username(non case sensible)' do
         sign_up(user)        
@@ -58,6 +59,7 @@ feature 'User sign up', %q{
         click_on 'Sign up'
 
         expect(page).to have_content 'Name has already been taken'
+        expect(current_path).to eq user_registration_path
       end
 
     end
