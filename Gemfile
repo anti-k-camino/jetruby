@@ -30,7 +30,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
-gem 'launchy'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -43,6 +42,7 @@ group :development, :test do
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
