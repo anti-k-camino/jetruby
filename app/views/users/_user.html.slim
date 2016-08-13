@@ -1,0 +1,14 @@
+div.panel
+  div.panel-header
+    div.user_errors
+    div.edit_toggle
+      ="#{@user.name}'s profile"
+      =link_to 'Edit', ''
+    div.edit_user  
+      =form_for @user, remote: true do |f| 
+        = f.label :name, class:'label_hidden'
+        = f.text_field :name   
+        br
+        = f.submit 'Update'      
+  div.panel-body
+    = @user.email    

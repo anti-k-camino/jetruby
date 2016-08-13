@@ -1,0 +1,8 @@
+<% if @user.errors.present? %>  
+  $(".user_errors").html("<%= j render 'common/errors', resource: @user %>");
+<% else %>  
+  $(".user_profile").html('<%= j render @user %>');
+  $(".user_errors").html("");
+  $(".edit_user").hide();
+  $(".edit_toggle").show();  
+<% end %>

@@ -1,5 +1,7 @@
-div.panel 
-  div.panel-header
-    ="#{@user.name}'s profile"
-  div.panel-body
-    = @user.email   
+.user_profile
+  =render @user
+.unhappy
+  |Unhappy?
+  =link_to "Change your password", edit_user_registration_path
+
+
