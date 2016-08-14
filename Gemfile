@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
+gem 'carrierwave'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -44,7 +46,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'capybara-webkit'
-  gem 'database_cleaner'
+  gem 'database_cleaner'  
 end
 
 group :development do

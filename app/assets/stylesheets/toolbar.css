@@ -1,0 +1,10 @@
+.admin-panel{
+  background-color: black;
+  color: white;
+  height: 40px;  
+  font-size: 20px;
+  margin-right: 40px;
+}
+.admin-hidden{
+  display: none;
+}
