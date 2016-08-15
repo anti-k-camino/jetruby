@@ -10,7 +10,20 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: { case_sensitive: false }
 
+  def weekdays
+    deduct_weekdays.map{|day| day.strftime("%A")}
+  end
+
   private
+  def deduct_weekdays
+    arr = []
+    @n = 0
+    7.times do 
+      arr << DateTime.now - @n      
+      @n += 1
+    end
+    arr
+  end
   def set_admin
     self.admin = User.count == 0
   end   

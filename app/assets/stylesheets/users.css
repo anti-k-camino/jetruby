@@ -4,4 +4,7 @@
 .label_hidden{
   display: none;
 }
+.panel-default.today{
+  color: green;
+}
 

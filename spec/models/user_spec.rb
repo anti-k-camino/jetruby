@@ -36,4 +36,23 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'weekdays' do
+    let!(:admin_user){ create :user }
+    let!(:user){ create :user }
+    
+    it 'returns an array with the length of seven' do
+      expect(user.weekdays.length).to eq 7
+    end
+
+    it 'returns an array with the [0] element equal to DateTime.now() day' do
+      day_today = DateTime.now.strftime("%A")
+      expect(user.weekdays[0]).to eq day_today
+    end
+
+    it 'returns an array with the [6] element equal to DateTime.now() - 6(tommorows menu)' do
+      day_today = (DateTime.now - 6).strftime("%A")
+      expect(user.weekdays[6]).to eq day_today
+    end
+  end
 end

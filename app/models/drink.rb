@@ -1,0 +1,2 @@
+class Drink < Dish; end
+

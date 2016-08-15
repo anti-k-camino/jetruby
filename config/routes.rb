@@ -7,8 +7,12 @@ Rails.application.routes.draw do
     resources :users do
       get :toolbar, on: :member
     end
+    resources :menus
   end
+  resources :menus, only:[:show] 
   
-  resources :users, only:[:show, :update]
+  resources :users, only:[:show, :update] do
+    get :dashboard, on: :member
+  end
   
 end

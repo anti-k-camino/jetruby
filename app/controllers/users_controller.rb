@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only:[:show, :update]
+  before_action :set_user, only:[:show, :update, :dashboard]
 
   def show
   end
 
   def update
     @user.update(user_params) 
+  end
+
+  def dashboard
+    @weekdays = @user.weekdays
   end
 
   private
