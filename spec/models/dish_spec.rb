@@ -5,7 +5,7 @@ RSpec.describe Dish, type: :model do
   it { should validate_presence_of :price }
   it { should validate_presence_of :course }
   it { should validate_presence_of :menu_id }
-  it { should have_db_index [:name, :course] }
+  it { should have_db_index([:name, :course]).unique(true)  }
   it { should have_db_index :menu_id }
 
   describe Dish, ".firstmeals" do 

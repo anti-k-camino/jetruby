@@ -1,23 +1,40 @@
 .container.weekdays
   .row
     .col-sm-4  
-      .panel-default.today
+      .panel-default data-day="#{@weekdays[0]}"
         .h3 
           |Today's menu.            
         =@weekdays[0]
+        br
+        =link_to "Today's menu", menu_path("#{@weekdays[0]}"), class: 'today', remote: true
       hr
       hr
-    .col-sm-6
-      .panel.archieve_1
-        =@weekdays[1]
-      .panel.archieve_2
-        =@weekdays[2]
-      .panel.archieve_3  
-        =@weekdays[3]
-      .panel.archieve_4 
-        =@weekdays[4]
-      .panel.archieve_5  
-        =@weekdays[5]
-      .panel.archieve_6  
-        =@weekdays[6]
+    .col-sm-3
+      .panel-default.archive
+        .panel.archive_1          
+          =link_to "#{@weekdays[1]}'s menu", menu_path("#{@weekdays[1]}"), remote: true
+        .panel.archive_2          
+          =link_to "#{@weekdays[2]}'s menu", menu_path("#{@weekdays[2]}"), remote: true
+        .panel.archive_3          
+          =link_to "#{@weekdays[3]}'s menu", menu_path("#{@weekdays[3]}"), remote: true
+        .panel.archive_4          
+          =link_to "#{@weekdays[4]}'s menu", menu_path("#{@weekdays[4]}"), remote: true
+        .panel.archive_5          
+          =link_to "#{@weekdays[5]}'s menu", menu_path("#{@weekdays[5]}"), remote: true
+        .panel.archive_6          
+          =link_to "#{@weekdays[6]}'s menu", menu_path("#{@weekdays[6]}"), remote: true
+  .row
+    .col-sm-4
+      .panel-default.today_view
+    .col-sm-3
+      .panel-default.archive_view
+  br
+  br
+  .row
+    .col-sm-12
+      -if current_user.admin? 
+        |admin
+      -elsif !current_user.admin?
+        |simply
+      
     

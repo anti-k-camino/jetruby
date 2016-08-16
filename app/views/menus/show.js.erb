@@ -1,0 +1,8 @@
+<% if @menu.day == DateTime.now.strftime("%A") %> 
+  $('.today_view').html("<%= j render 'menu', menu: @menu %>")  
+<% else %>  
+  $('.archive_view').html("<%= j render @menu %>")
+<% end %>
+
+
+

@@ -40,6 +40,39 @@ RSpec.describe UsersController, type: :controller do
           expect(response).to render_template :dashboard
         end
       end
-
     end
+
+    describe 'PATCH #update' do
+      
+      context 'Non-authenticated user try to edit user' do       
+        let!(:user){ create :user }
+        it 'fails to update user' do
+          us = (assigns :user)
+          patch :update, id: user, user:{ name: 'Malicious try'}, format: :js
+          user.reload        
+          expect(assigns :user).to eq us
+        end      
+      end 
+
+      context 'Authenticated user' do
+        sign_in_user
+
+        it 'assignes user to @user' do
+          patch :update, id: @user, user:{ name: 'Someuser'}, format: :js
+          expect(assigns :user).to eq @user
+        end
+
+        it 'does not create some new user' do
+          expect{ patch :update, id: @user, user: { name: 'Someuser' }, format: :js }.to_not change(User, :count)
+        end
+
+        it 'changes user attributes' do
+          patch :update, id: @user, user: { name: 'Someuser' }, format: :js
+          @user.reload
+          expect(assigns :user).to eq @user
+        end
+
+      end
+    end    
+ 
 end

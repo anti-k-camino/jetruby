@@ -24,6 +24,7 @@ class User < ApplicationRecord
     end
     arr
   end
+  
   def set_admin
     self.admin = User.count == 0
   end   

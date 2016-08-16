@@ -1,6 +1,5 @@
 class Admin::MenusController < Admin::BaseController  
   def index
-    @users = User.all
-  end
-  
+    @weekdays = current_user.weekdays   
+  end  
 end

@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users do
       get :toolbar, on: :member
-    end
-    resources :menus
+    end   
   end
-  resources :menus, only:[:show] 
+  
+  resources :menus, only:[:show, :update]
   
   resources :users, only:[:show, :update] do
     get :dashboard, on: :member

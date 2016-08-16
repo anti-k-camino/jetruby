@@ -24,7 +24,8 @@ html lang="en"
           a.navbar-brand href="#"Administrator
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
-              li= link_to "Sign out", destroy_user_session_path, :method => :delete              
+              li= link_to "Sign out", destroy_user_session_path, :method => :delete 
+              li= link_to 'Browse users', admin_users_path             
     .container
       .row
         .col-lg-12

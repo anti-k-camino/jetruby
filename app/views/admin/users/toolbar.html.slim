@@ -2,8 +2,10 @@ div.container
   div.panel.admin-panel
     div.row
       div.col-sm-2.col-sm-offset-1
-        span.users_listing
-          =link_to 'Browse users', admin_users_path
+        span.users_listing          
+      div.col-sm-4
+        span.menus_cal
+          =link_to 'Menus callendar', dashboard_user_path(current_user)
 
     
       
