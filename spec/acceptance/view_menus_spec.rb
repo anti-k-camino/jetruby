@@ -19,8 +19,7 @@ feature 'User view dashboard', %q{
     scenario 'can see menu for today and arichived ones', js: true do
       sign_in user
       visit dashboard_user_path(user)           
-      expect(current_path).to eq dashboard_user_path(user)
-      save_and_open_page
+      expect(current_path).to eq dashboard_user_path(user)      
       click_on "Today's menu"        
       wait_for_ajax      
       expect(page).to have_content dish.name

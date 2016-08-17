@@ -1,6 +1,6 @@
 .container.weekdays
   .row
-    .col-sm-4  
+    .col-sm-3  
       .panel-default data-day="#{@weekdays[0]}"
         .h3 
           |Today's menu.            
@@ -9,6 +9,7 @@
         =link_to "Today's menu", menu_path("#{@weekdays[0]}"), class: 'today', remote: true
       hr
       hr
+        =render 'orders/form'
     .col-sm-3
       .panel-default.archive
         .panel.archive_1          
@@ -22,19 +23,10 @@
         .panel.archive_5          
           =link_to "#{@weekdays[5]}'s menu", menu_path("#{@weekdays[5]}"), remote: true
         .panel.archive_6          
-          =link_to "#{@weekdays[6]}'s menu", menu_path("#{@weekdays[6]}"), remote: true
-  .row
-    .col-sm-4
+          =link_to "#{@weekdays[6]}'s menu", menu_path("#{@weekdays[6]}"), remote: true  
+    .col-sm-3
       .panel-default.today_view
     .col-sm-3
       .panel-default.archive_view
-  br
-  br
-  .row
-    .col-sm-12
-      -if current_user.admin? 
-        |admin
-      -elsif !current_user.admin?
-        |simply
       
     

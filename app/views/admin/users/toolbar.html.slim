@@ -7,5 +7,38 @@ div.container
         span.menus_cal
           =link_to 'Menus callendar', dashboard_user_path(current_user)
 
+
+.container.weekdays
+  .row
+    .col-sm-3  
+      .panel-default data-day="#{@weekdays[0]}"
+        .h3 
+          |Today's menu.            
+        =@weekdays[0]
+        br
+        =link_to "Today's menu", admin_menu_path("#{@weekdays[0]}"), class: 'today', remote: true
+      hr
+      hr
+      =link_to 'New dish', new_admin_dish_path
+
+    .col-sm-3
+      .panel-default.archive
+        .panel.archive_1          
+          =link_to "#{@weekdays[1]}'s orders", admin_order_path("#{@weekdays[1]}"), remote: true
+        .panel.archive_2          
+          =link_to "#{@weekdays[2]}'s orders", admin_order_path("#{@weekdays[2]}"), remote: true
+        .panel.archive_3          
+          =link_to "#{@weekdays[3]}'s orders", admin_order_path("#{@weekdays[3]}"), remote: true
+        .panel.archive_4          
+          =link_to "#{@weekdays[4]}'s orders", admin_order_path("#{@weekdays[4]}"), remote: true
+        .panel.archive_5          
+          =link_to "#{@weekdays[5]}'s orders", admin_order_path("#{@weekdays[5]}"), remote: true
+        .panel.archive_6          
+          =link_to "#{@weekdays[6]}'s orders", admin_order_path("#{@weekdays[6]}"), remote: true  
+    .col-sm-6
+      .panel-default.archive_view
+      
+    
+
     
       

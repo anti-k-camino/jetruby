@@ -1,0 +1,6 @@
+<% if @order.errors.any? %>
+  $('.order_errors').html("");
+  $('.order_errors').html("<%= j render 'common/errors', @order %>");
+<% else %>
+  $('.order_errors').html("");
+<% end %>

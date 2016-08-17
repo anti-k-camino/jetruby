@@ -4,6 +4,11 @@ class User < ApplicationRecord
 
   before_create :set_admin
 
+  has_many :orders
+  has_many :firsts, through: :orders
+  has_many :seconds, through: :orders
+  has_many :drinks, through: :orders
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable   
 

@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
+gem "select2-rails"
 gem 'carrierwave'
 
 

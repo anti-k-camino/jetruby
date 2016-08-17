@@ -1,0 +1,12 @@
+.order_errors
+fieldset
+  .order_legend
+    legend Order here
+  =form_for Order.new, remote: true do |f|
+    p
+      = f.select(:first_id, options_from_collection_for_select(Menu.first.firstmeals, :id, :name), class: "form-control", include_blank: true, multiple: true, class:"order_first")
+    p
+      = f.select(:second_id, options_from_collection_for_select(Menu.first.secondmeals, :id, :name), class: "form-control", include_blank: true, multiple: true)
+    p
+      = f.select(:drink_id, options_from_collection_for_select(Menu.first.drinks, :id, :name), class: "form-control", include_blank: true, multiple: true)
+    = f.submit
